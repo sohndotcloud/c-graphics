@@ -3,7 +3,7 @@ TARGET=main
 CFLAGS=-Wall -lm
 DFLAGS=-g
 SANITIZE=-fsanitize=address
-SDL2=-lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf
+SDL2=-lSDL2 -lSDL2_image -lSDL2_ttf
 SOURCE = $(wildcard src/*.c)
 OBJS=$(addprefix build/, $(patsubst %.c, %.o, $(notdir $(SOURCE))))
 

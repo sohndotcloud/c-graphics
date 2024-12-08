@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
     }
     else
     {
-        window = SDL_CreateWindow("Project Canvas", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, SDL_WINDOW_SHOWN);
+        window = SDL_CreateWindow("Project Canvas", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1280, 720, SDL_WINDOW_SHOWN);
         if (window == NULL)
         {
             printf("Window Creation Error, %s", SDL_GetError());
@@ -26,13 +26,14 @@ int main(int argc, char *argv[])
         {
             windowSurface = SDL_GetWindowSurface(window);
             const char *newDir = SDL_GetBasePath();
+            printf("%s\n", newDir);
             if (chdir(newDir) != 0)
             {
                 perror("chdir() failed");
                 SDL_Quit();
                 return -1;
             }
-            imageSurface = SDL_LoadBMP("./test.bmp");
+            imageSurface = SDL_LoadBMP("../assets/ocean.bmp");
 
             if (imageSurface == NULL)
             {
